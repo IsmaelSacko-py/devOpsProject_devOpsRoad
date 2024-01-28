@@ -15,20 +15,20 @@ pipeline {
 
         stage('compile') {
             steps {
-                powershell 'mvn package'
+                bat 'mvn package'
             }
         }
 
         stage('package') {
             steps {
-                powershell 'mvn compile'
+                bat 'mvn compile'
             }
         }
 
         stage('sonarqube analysis') {
             steps {
                 withSonarQubeEnv(credentialsId: 'SonarQube-Token', installationName: 'SonarQube') {
-                    powershell "mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan'"
+                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan'"
                 }
             }
         }

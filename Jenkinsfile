@@ -7,7 +7,7 @@ pipeline {
     }
     
     stages {
-        stage('checkout') {
+        stage('checkout SCM') {
             steps {
                 git branch: 'main', credentialsId: 'git_credentials', url: 'https://github.com/IsmaelSacko-py/devOpsProject_devOpsRoad.git'
             }
@@ -25,10 +25,10 @@ pipeline {
             }
         }
 
-        stage('sonarqube') {
+        stage('sonarqube analysis') {
             steps {
                 withSonarQubeEnv(credentialsId: 'SonarQube-Token', installationName: 'SonarQube') {
-                    powershell 'mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan'
+                    powershell 'mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan'
                 }
             }
         }

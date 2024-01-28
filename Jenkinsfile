@@ -15,7 +15,7 @@ pipeline {
 
         stage('compile') {
             steps {
-                powershell 'mvn compile'
+                powershell 'mvn package'
             }
         }
 

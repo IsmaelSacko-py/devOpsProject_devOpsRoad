@@ -28,7 +28,7 @@ pipeline {
         stage('sonarqube analysis') {
             steps {
                 withSonarQubeEnv(credentialsId: 'SonarQube-Token', installationName: 'SonarQube') {
-                    powershell 'mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan'
+                    powershell 'mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan''
                 }
             }
         }

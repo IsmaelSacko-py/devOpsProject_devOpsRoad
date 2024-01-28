@@ -1,4 +1,3 @@
-pipeline {
     agent any
 
     tools {
@@ -15,13 +14,13 @@ pipeline {
 
         stage('compile') {
             steps {
-                bat 'mvn package'
+                bat 'mvn compile'
             }
         }
 
         stage('package') {
             steps {
-                bat 'mvn compile'
+                bat 'mvn package'
             }
         }
 

@@ -21,15 +21,17 @@ pipeline {
             }
         }
 
-        stage('compile') {
+        stage('build') {
             steps {
-                bat 'mvn compile'
+                bat 'mvn clean compile package'
             }
         }
 
-        stage('package') {
+        stage('sonarqube analysis') {
             steps {
-                bat 'mvn clean package'
+                withSonarQubeEnv(credentialsId: 'SonarQube-Token', installationName: 'SonarQube') {
+                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan'"
+                }
             }
         }
 

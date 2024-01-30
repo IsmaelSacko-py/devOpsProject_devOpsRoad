@@ -21,17 +21,12 @@ pipeline {
             }
         }
 
-        stage('compile') {
+        stage('build') {
             steps {
-                bat 'mvn compile'
+                bat 'mvn clean compile package'
             }
         }
 
-        stage('package') {
-            steps {
-                bat 'mvn clean package'
-            }
-        }
 
         stage("Publish to Nexus Repository Manager") {
             steps {

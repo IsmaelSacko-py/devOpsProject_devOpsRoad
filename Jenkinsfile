@@ -35,7 +35,7 @@ pipeline {
 
         stage("Publish to Nexus Repository Manager") {
             steps {
-                nexusArtifactUploader credentialsId: 'Nexus-Token', groupId: 'sn.devOpsRoad', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-central-repository', version: '1.0-SNAPSHOT'
+                nexusArtifactUploader artifacts: [[artifactId: 'devOpsProject_devOpsRoad', classifier: 'debug', file: 'devOpsProject_devOpsRoad.jar', type: 'jar']], credentialsId: 'Nexus-Token', groupId: 'sn.devOpsRoad', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-central-repository', version: '1.0-SNAPSHOT'
             }
         }
     }

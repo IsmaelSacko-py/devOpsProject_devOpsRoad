@@ -27,6 +27,13 @@ pipeline {
             }
         }
 
+        stage('sonarqube analysis') {
+            steps {
+                withSonarQubeEnv(credentialsId: 'SonarQube-Token', installationName: 'SonarQube') {
+                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan'"
+                }
+            }
+        }
 
         stage("Publish to Nexus Repository Manager") {
             steps {

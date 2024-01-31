@@ -30,7 +30,7 @@ pipeline {
         stage('sonarqube analysis') {
             steps {
                 withSonarQubeEnv(credentialsId: 'SonarQube-Token', installationName: 'SonarQube') {
-                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan'"
+                    bat "mvn clean verify sonar:sonar -Dsonar.projectKey=Test-Scan -Dsonar.projectName='Test-Scan' -Pcoverage"
                 }
             }
         }

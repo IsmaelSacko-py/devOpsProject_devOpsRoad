@@ -37,7 +37,7 @@ public class OperationTest
         //Given
         valeur1 = 10;
         valeur2 = 5;
-        expectedResult = 50;
+        expectedResult = 5;
 
         //When
         resultat = operation.soustraction(valeur1, valeur2);

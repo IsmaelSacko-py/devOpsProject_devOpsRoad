@@ -18,9 +18,9 @@ public class OperationTest
         int valeur1, valeur2, resultat, expectedResult;
 
         //Given
-        valeur1 = 3;
+        valeur1 = 5;
         valeur2 = 5;
-        expectedResult = 8;
+        expectedResult = 10;
 
         //When
         resultat = operation.addition(valeur1, valeur2);
@@ -41,6 +41,23 @@ public class OperationTest
 
         //When
         resultat = operation.soustraction(valeur1, valeur2);
+
+        //Then
+        Assert.assertEquals(resultat, expectedResult);
+    }
+
+    @Test
+    public void testMultiplication()
+    {
+        int valeur1, valeur2, resultat, expectedResult;
+
+        //Given
+        valeur1 = 10;
+        valeur2 = 5;
+        expectedResult = 50;
+
+        //When
+        resultat = operation.multiplication(valeur1, valeur2);
 
         //Then
         Assert.assertEquals(resultat, expectedResult);

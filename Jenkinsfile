@@ -10,7 +10,7 @@ pipeline {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "localhost:8081"
-        NEXUS_REPOSITORY = "devOpsRoad-central-repository"
+        NEXUS_REPOSITORY = "testRepo"
         NEXUS_CREDENTIAL_ID = "Nexus-Token"
     }
     

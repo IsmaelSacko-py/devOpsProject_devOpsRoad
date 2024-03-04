@@ -18,9 +18,9 @@ public class OperationTest
         int valeur1, valeur2, resultat, expectedResult;
 
         //Given
-        valeur1 = 5;
+        valeur1 = 10;
         valeur2 = 5;
-        expectedResult = 10;
+        expectedResult = 15;
 
         //When
         resultat = operation.addition(valeur1, valeur2);

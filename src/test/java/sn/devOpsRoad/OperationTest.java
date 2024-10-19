@@ -20,7 +20,7 @@ public class OperationTest
         //Given
         valeur1 = 10;
         valeur2 = 25;
-        expectedResult = 50;
+        expectedResult = 40;
 
         //When
         resultat = operation.addition(valeur1, valeur2);
